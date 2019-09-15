@@ -10,7 +10,7 @@ const Domain = ({ pageContext }) => {
         <Layout>
             <SEO title={title} />
             <h1>{title}</h1>
-            { featuredImage.source_url ? <img style={{width: `150px`, height: `150px`}} src={featuredImage.source_url} alt="domain logo" /> : null }
+            { featuredImage ? <img style={{width: `150px`, height: `150px`}} src={featuredImage.source_url} alt="domain logo" /> : null }
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
         </Layout>
     )
