@@ -1,5 +1,25 @@
+@font-face {
+  font-family: 'Kelson Sans';
+  src: url('../fonts/KelsonSans-Normal.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Kelson Sans';
+  src: url('../fonts/KelsonSans-Bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Kelson Sans';
+  src: url('../fonts/KelsonSans-Light.otf');
+  font-weight: thin;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&display=swap');
+
 html {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -618,5 +638,124 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+
+.primary-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrap {
+    justify-content: flex-start;
+  }
+
+  .primary-nav {
+    justify-content: flex-start;
+    flex-basis: 100%;
+  }
+}
+
+.primary-nav > a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: black;
+  padding: 5px 10px;
+} 
+
+.primary-nav > a:hover {
+  color: #3ead5a;
+  position: relative;
+}
+
+.primary-nav > .active {
+  color: #3ead5a;
+  position: relative;
+}
+
+.primary-nav > .active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #3ead5a;
+  width: 50%;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.primary-nav > a:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #3ead5a;
+  width: 50%;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card.post-card {
+  margin: 25px 25px 25px 0;
+}
+
+.card.post-card:first-of-type {
+  margin-top: 0;
+}
+
+.card.cta-card {
+  margin: 25px 25px 25px 0;
+}
+
+.card.cta-card:first-of-type {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .page-content {
+    flex-flow: column nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+
+  .card.post-card {
+    margin: 25px 0;
+  }
+  
+  .card.cta-card {
+    margin: 25px 0;
+  }
+  
+}
+
+.domain-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (max-width: 529px) {
+  .card.domain-card {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 530px) {
+  .card.domain-card {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .card.domain-card {
+    flex-basis: 33.333%;
   }
 }
