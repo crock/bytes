@@ -2,6 +2,7 @@ var proxy = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
+    siteUrl:  `https://croc.domains`,
     title: `Croc Domains`,
     description: `Domaining Passion`,
     author: `@crocdomains`,
@@ -74,6 +75,7 @@ module.exports = {
         cookieDomain: "croc.domains",
       },
     },
+    `gatsby-plugin-sitemap`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
