@@ -69,7 +69,10 @@ const RecentPosts = () => (
                                         textDecoration: `none`,
                                         color: `#3ead5a`,
                                         fontWeight: `bold`,
-
+                                        width: `200px`,
+                                        whiteSpace: `nowrap`,
+                                        overflow: `hidden`,
+                                        textOverflow: `ellipsis`,
                                     }}>{post.node.title}</Link>
                                     <small className="post-date" style={{
                                         color: `grey`,

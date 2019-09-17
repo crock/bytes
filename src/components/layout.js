@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
           maxWidth: 1170,
           padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
+          fontFamily: `'Roboto', sans-serif`
         }}
       >
         <div className="page-content"
@@ -46,7 +47,7 @@ const Layout = ({ children }) => {
             alignItems: `flex-start`,
           }}
         >
-          <main style={{flex: 1}}>{children}</main>
+          <main style={{flex: 1, marginRight: `25px`}}>{children}</main>
           <Sidebar>
             <RecentPosts />
             <a href='https://my.escrow.com/partner.asp?pid=0'><img src='https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg' width='300' height='250' alt='Escrow.com: Buy or Sell Online Without the Fear of Fraud' border='0' /></a>

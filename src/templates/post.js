@@ -17,8 +17,12 @@ const Post = ({ pageContext }) => {
         <Layout>
             <SEO title={title} />
             <h1>{title}</h1>
-            <span className="post-meta">Posted by <Link to={`/user/${author.slug}`}>{author.name}</Link> | { formatDate(date) }</span>
-            <div dangerouslySetInnerHTML={{ __html: content }}></div>
+            <span className="post-meta" style={{
+                color: `#9e9e9e`,
+                marginBottom: `25px`,
+                fontWeight: `300`
+            }}>Posted by <Link to={`/user/${author.slug}`} style={{ textDecoration: `none`, color: `#3ead5a`, fontWeight: `bold` }}>{author.name}</Link> | { formatDate(date) }</span>
+            <div style={{ fontWeight: `400`, lineHeight: `2rem` }} dangerouslySetInnerHTML={{ __html: content }}></div>
         </Layout>
     )
 }

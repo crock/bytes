@@ -29,11 +29,16 @@ const Blog = ({ pageContext }) => {
                             padding: `25px`,
                             boxShadow: `rgb(236, 236, 236) 3px 3px 10px 0`,
                             borderRadius: `6px`,
+                            fontFamily: `'Roboto', sans-serif`
                         }}
                     >
-                        <h2 style={{margin: 0}}>{post.title}</h2>
-                        <span className="post-meta">Posted by <Link to={`/user/${post.author.slug}`}>{post.author.name}</Link> | { formatDate(post.date) }</span>
-                        <div dangerouslySetInnerHTML={{ __html: post.excerpt }}></div>
+                        <h2 style={{marginTop: 0, marginBottom: `25px`}}>{post.title}</h2>
+                        <span className="post-meta" style={{
+                            color: `#9e9e9e`,
+                            marginBottom: `15px`,
+                            fontWeight: `300`
+                        }}>Posted by <Link to={`/user/${post.author.slug}`} style={{ textDecoration: `none`, color: `#3ead5a`, fontWeight: `bold` }}>{post.author.name}</Link> | { formatDate(post.date) }</span>
+                        <div style={{ fontWeight: `400`, lineHeight: `2rem` }} dangerouslySetInnerHTML={{ __html: post.excerpt }}></div>
                         <Link to={`/blog/${post.slug}`}
                             style={{
                                 width: `200px`,
