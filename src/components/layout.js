@@ -13,6 +13,8 @@ import Header from "./header"
 import Sidebar from "./sidebar"
 import RecentPosts from './recent-posts'
 import "./layout.css"
+import igIcon from '../images/ig.svg'
+import twtrIcon from '../images/twtr.svg'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -53,8 +55,26 @@ const Layout = ({ children }) => {
             <a href='https://my.escrow.com/partner.asp?pid=0'><img src='https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg' width='300' height='250' alt='Escrow.com: Buy or Sell Online Without the Fear of Fraud' border='0' /></a>
           </Sidebar>
         </div>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+
+        <footer
+          style={{
+            marginTop: `50px`
+          }}
+        >
+          <div className="social-icons"
+            style={{
+              display: `flex`,
+              flexFlow: `row nowrap`,
+              justifyContent: `flex-start`,
+              alignItems: `center`,
+              width: `auto`,
+              paddingBottom: `10px`
+            }}
+          >
+            <a href="https://twitter.com/crocdomains"><img style={{width: `50px`, height: `50px`, marginRight: `10px`}} src={twtrIcon} alt="twitter icon"/></a>
+            <a href="https://instagram.com/crocdesigns"><img style={{width: `50px`, height: `50px`}} src={igIcon} alt="instagram icon"/></a>
+          </div>
+          © {new Date().getFullYear()} Alex Crocker, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
