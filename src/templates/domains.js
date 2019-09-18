@@ -14,7 +14,7 @@ const DomainCollection = ({ pageContext }) => {
 
             {
                 domains.map(domain => (
-                    <article className="card domain-card" id={`domain-${domain.id}`} key={domain.id}
+                    <article className="card domain-card" id={`domain-${domain.wordpress_id}`} key={domain.id}
                         style={{
                             display: `flex`,
                             flexDirection: `column`,
@@ -25,8 +25,8 @@ const DomainCollection = ({ pageContext }) => {
                             borderRadius: `6px`,
                         }}
                     >
-                        <h2 style={{margin: 0}}>{domain.title}</h2>
-                        <Link to={`/domains/${domain.title}`}
+                        <h2 style={{margin: 0}}>{domain.name}</h2>
+                        <Link to={`/domains/${domain.name.toLowerCase()}`}
                             style={{
                                 width: `200px`,
                                 height: `40px`,

@@ -73,9 +73,45 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
           totalCount
+        },
+        allWordpressWcProducts {
+          nodes {
+            id
+            regular_price
+            name
+            featured
+            description
+            price_html
+            wordpress_id
+            tags {
+              name
+              slug
+              id
+              wordpress_id
+            }
+            status
+            slug
+            short_description
+            meta_data {
+              wordpress_id
+              key
+              value
+            }
+            images {
+              src {
+                source_url
+              }
+            }
+            categories {
+              name
+              wordpress_id
+              slug
+              id
+            }
+            price
+          }
         }
       }
-      
       `
     )
     // Handle errors
@@ -153,7 +189,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
     const domainsTemplate = path.resolve(`./src/templates/domains.js`)
-    let domains = result.data.allWordpressWpProduct.edges.map(domain => domain.node)
+    let domains = result.data.allWordpressWcProducts.nodes
     createPage({
         path: `/domains/`,
         component: slash(domainsTemplate),
@@ -163,19 +199,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
     const domainTemplate = path.resolve(`./src/templates/domain.js`)
-    _.each(result.data.allWordpressWpProduct.edges, edge => {
+    _.each(result.data.allWordpressWcProducts.nodes, domain => {
         createPage({
             // will be the url for the page
-            path: `/domains/${edge.node.title}`,
+            path: `/domains/${domain.name.toLowerCase()}`,
             // specify the component template of your choice
             component: slash(domainTemplate),
             // In the ^template's GraphQL query, 'id' will be available
             // as a GraphQL variable to query for this posts's data.
             context: {
-                id: edge.node.wordpress_id,
-                title: edge.node.title,
-                featuredImage: edge.node.featured_media,
-                content: edge.node.content,
+                id: domain.wordpress_id,
+                title: domain.name,
+                featuredImage: domain.images.src,
+                content: domain.description,
+                excerpt: domain.short_description,
+                isFeatured: domain.featured,
+                tags: domain.tags,
+                categories: domain.categories,
+                slug: domain.name.toLowerCase(),
+                price: domain.price,
             },
         })
     })
