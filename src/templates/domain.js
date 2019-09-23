@@ -20,6 +20,7 @@ const FormGroup = styled.div`
         width: 50%;
         height: 50px;
         border: 1px solid #333;
+        text-indent: 10px;
 
         &:focus {
             outline: none;
@@ -31,6 +32,7 @@ const FormGroup = styled.div`
         width: 50%;
         height: 200px;
         border: 1px solid #333;
+        text-indent: 10px;
 
         &:focus {
             outline: none;
@@ -87,7 +89,7 @@ const Domain = ({ pageContext }) => {
             { featuredImage ? <a href={`http://${title.toLowerCase()}`}><Image src={featuredImage.source_url} alt="mlbnews.com website preview" /></a> : null }
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
             <div>
-                <form name="domain-enquiry" method="post" netlify>
+                <form name="domain-enquiry" method="post" data-netlify="true" data-netlify-recaptcha="true">
                     <input type="hidden" name="domain_name" value={title} />
                     
                     <FormGroup>
@@ -105,6 +107,7 @@ const Domain = ({ pageContext }) => {
                         <textarea id="message" name="message" type="text" />
                     </FormGroup>
 
+                    <div data-netlify-recaptcha="true"></div>
                     <StyledLink type="submit" value="Submit" />
                 </form>
             </div> 
