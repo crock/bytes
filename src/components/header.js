@@ -51,7 +51,7 @@ const Header = ({ siteTitle, siteDesc }) => (
       <nav className="primary-nav">
         <Link to="/" activeClassName="active">Home</Link>
         <Link to="/blog" activeClassName="active">Blog</Link>
-        {/* <Link to="/domains" activeClassName="active">Domains</Link> */}
+        <Link to="/domains" activeClassName="active">Domains</Link>
         {/* eslint-disable-next-line */}
         <a href="https://domaincord.com" target="_blank">DomainCord</a>
       </nav>

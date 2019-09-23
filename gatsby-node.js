@@ -210,7 +210,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             context: {
                 id: domain.wordpress_id,
                 title: domain.name,
-                featuredImage: domain.images.src,
+                featuredImage: domain.images.length > 0 ? domain.images[0].src : null,
                 content: domain.description,
                 excerpt: domain.short_description,
                 isFeatured: domain.featured,

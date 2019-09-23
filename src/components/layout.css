@@ -19,7 +19,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&display=swap');
 
 html {
-  font-family: 'Roboto', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -27,6 +26,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
 }
 article,
 aside,
@@ -711,14 +711,6 @@ pre tt:after {
   margin-top: 0;
 }
 
-.card.cta-card {
-  margin: 25px 25px 25px 0;
-}
-
-.card.cta-card:first-of-type {
-  margin-top: 0;
-}
-
 @media screen and (max-width: 768px) {
 
   .page-content {
@@ -731,9 +723,6 @@ pre tt:after {
     margin: 25px 0;
   }
   
-  .card.cta-card {
-    margin: 25px 0;
-  }
   
 }
 

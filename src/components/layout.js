@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Header from "./header"
 import Sidebar from "./sidebar"
@@ -15,6 +16,48 @@ import RecentPosts from './recent-posts'
 import "./layout.css"
 import igIcon from '../images/ig.svg'
 import twtrIcon from '../images/twtr.svg'
+
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 1170px;
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0;
+  font-family: 'Roboto', sans-serif;
+`
+
+const PageContent = styled.div`
+  flex: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+`
+const Main = styled.main`
+  flex: 1;
+  margin-right: 25px;
+`
+
+const Footer = styled.footer`
+  margin-top: 50px;
+`
+
+const Socials = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  padding-bottom: 10px;
+
+  img {
+    width: 50px;
+    height: 50px;
+
+    &:first-of-type {
+      margin-right: 10px;
+    }
+  }
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,54 +74,31 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} siteDesc={data.site.siteMetadata.description} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 1170,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-          fontFamily: `'Roboto', sans-serif`
-        }}
-      >
-        <div className="page-content"
-          style={{
-            flex: `auto`,
-            display: `flex`,
-            flexFlow: `row wrap`,
-            justifyContent: `space-between`,
-            alignItems: `flex-start`,
-          }}
-        >
-          <main style={{flex: 1, marginRight: `25px`}}>{children}</main>
+      <Container>
+        <PageContent className="page-content">
+          <Main>{children}</Main>
           <Sidebar>
             <RecentPosts />
-            <a href='https://my.escrow.com/partner.asp?pid=0'><img src='https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg' width='300' height='250' alt='Escrow.com: Buy or Sell Online Without the Fear of Fraud' border='0' /></a>
+            <a href='https://my.escrow.com/partner.asp?pid=0'>
+              <img src='https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg' width='300' height='250' alt='Escrow.com: Buy or Sell Online Without the Fear of Fraud' border='0' />
+            </a>
           </Sidebar>
-        </div>
+        </PageContent>
 
-        <footer
-          style={{
-            marginTop: `50px`
-          }}
-        >
-          <div className="social-icons"
-            style={{
-              display: `flex`,
-              flexFlow: `row nowrap`,
-              justifyContent: `flex-start`,
-              alignItems: `center`,
-              width: `auto`,
-              paddingBottom: `10px`
-            }}
-          >
-            <a href="https://twitter.com/crocdomains"><img style={{width: `50px`, height: `50px`, marginRight: `10px`}} src={twtrIcon} alt="twitter icon"/></a>
-            <a href="https://instagram.com/crocdesigns"><img style={{width: `50px`, height: `50px`}} src={igIcon} alt="instagram icon"/></a>
-          </div>
+        <Footer>
+          <Socials className="social-icons">
+            <a href="https://twitter.com/crocdomains">
+              <img src={twtrIcon} alt="twitter icon" />
+            </a>
+            <a href="https://instagram.com/crocdesigns">
+              <img src={igIcon} alt="instagram icon" />
+            </a>
+          </Socials>
           © {new Date().getFullYear()} Alex Crocker, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        </Footer>
+      </Container>
     </>
   )
 }
