@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -79,7 +79,53 @@ const Image = styled.img`
 
 const Domain = ({ pageContext }) => {
     const {  title, content, featuredImage, price, excerpt } = pageContext
-    console.log(featuredImage)
+    const [status,setStatus] = useState('');
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [message,setMessage] = useState('');
+
+    const encode = (data) => {
+        let formData = '';
+        Object.keys(data).forEach((k)=>{
+          formData += `${k}=${encodeURIComponent(data[k])}&`
+        });
+        return formData
+    }
+    
+    const handleSubmit = e => {
+        const data = { "form-name": "domain-enquiry", 
+                        "domain": title, 
+                        "user_name": name, 
+                        "email": email, 
+                        "message": message }
+        
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": 'application/x-www-form-urlencoded' },
+          body: encode(data).slice(0, -1)
+        })
+          .then(() => {
+            setStatus("Form Submission Successful!!")
+            window.location.href = "/success"
+          })
+          .catch(error => setStatus("Form Submission Failed!"));
+    
+        e.preventDefault();
+    };
+
+    
+    const handleChange = e => {
+        const {name, value} = e.target
+        if (name === 'user_name' ){
+          return setName(value)
+        }
+        if (name === 'email' ){
+          return setEmail(value)
+        }
+        if (name === 'message' ){
+          return setMessage(value)
+        }
+    }
 
     return (
         <Layout>
@@ -89,27 +135,29 @@ const Domain = ({ pageContext }) => {
             { featuredImage ? <a href={`http://${title.toLowerCase()}`}><Image src={featuredImage.source_url} alt="mlbnews.com website preview" /></a> : null }
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
             <div>
-                <form name="domain-enquiry" method="post" data-netlify="true" data-netlify-recaptcha="true">
-                    <input type="hidden" name="domain_name" value={title} />
+                <form name="domain-enquiry" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input style={{ display: `none` }} name="bot-field" />
+                    <input type="hidden" name="form-name" value="domain-enquiry" />
+                    <input type="hidden" name="domain" value={title} />
                     
                     <FormGroup>
                         <label htmlFor="user_name">Your Name:</label>
-                        <input id="user_name" name="user_name" type="text" />
+                        <input id="user_name" name="user_name" type="text" value={name} onChange={handleChange} />
                     </FormGroup>
 
                     <FormGroup>
                         <label htmlFor="email">Email Address:</label>
-                        <input id="email" name="email" type="email" />
+                        <input id="email" name="email" type="email" value={email} onChange={handleChange} />
                     </FormGroup>
 
                     <FormGroup>
                         <label htmlFor="message">Message:</label>
-                        <textarea id="message" name="message" type="text" />
+                        <textarea id="message" name="message" type="text" value={message} onChange={handleChange} />
                     </FormGroup>
 
-                    <div data-netlify-recaptcha="true"></div>
                     <StyledLink type="submit" value="Submit" />
                 </form>
+                <p>{status}</p>
             </div> 
         </Layout>
     )
