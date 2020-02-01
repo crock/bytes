@@ -5,15 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Header from "./header"
-import Sidebar from "./sidebar"
-import RecentPosts from './recent-posts'
-import "./layout.css"
+import Header from './header'
+import Sidebar from './sidebar'
+import './layout.css'
 import igIcon from '../images/ig.svg'
 import twtrIcon from '../images/twtr.svg'
 
@@ -59,7 +58,7 @@ const Socials = styled.div`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ fullWidth, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -73,16 +72,26 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} siteDesc={data.site.siteMetadata.description} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        siteDesc={data.site.siteMetadata.description}
+      />
       <Container>
         <PageContent className="page-content">
           <Main>{children}</Main>
-          <Sidebar>
-            <RecentPosts />
-            <a href='https://my.escrow.com/partner.asp?pid=0'>
-              <img src='https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg' width='300' height='250' alt='Escrow.com: Buy or Sell Online Without the Fear of Fraud' border='0' />
-            </a>
-          </Sidebar>
+          {!fullWidth ? (
+            <Sidebar>
+              <a href="https://my.escrow.com/partner.asp?pid=0">
+                <img
+                  src="https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg"
+                  width="300"
+                  height="250"
+                  alt="Escrow.com: Buy or Sell Online Without the Fear of Fraud"
+                  border="0"
+                />
+              </a>
+            </Sidebar>
+          ) : null}
         </PageContent>
 
         <Footer>

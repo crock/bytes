@@ -1,30 +1,75 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import styled from 'styled-components'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+const PostDate = styled.small`
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #9e9e9e;
+`
 
-const Post = ({ pageContext }) => {
-    const {  title, author, content, date } = pageContext
+const PostTitle = styled.h1`
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+  margin-bottom: 15px;
+`
 
-    const formatDate = date => {
+const ArticleBody = styled.div`
+  margin-top: 15px;
 
-        const dateObj = new Date(date)
-        return dateObj.toLocaleDateString()
-    }
+  p {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+`
 
-    return (
-        <Layout>
-            <SEO title={title} />
-            <h1>{title}</h1>
-            <span className="post-meta" style={{
-                color: `#9e9e9e`,
-                marginBottom: `25px`,
-                fontWeight: `300`
-            }}>Posted by <Link to={`/user/${author.slug}`} style={{ textDecoration: `none`, color: `#3ead5a`, fontWeight: `bold` }}>{author.name}</Link> | { formatDate(date) }</span>
-            <div style={{ fontWeight: `400`, lineHeight: `2rem` }} dangerouslySetInnerHTML={{ __html: content }}></div>
-        </Layout>
-    )
+const Category = styled.span`
+  background-color: #d9d9d9;
+  padding: 4px 8px;
+  color: white;
+  border-radius: 8px;
+  margin: 3px;
+`
+
+export default function Template({ data }) {
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
+  const { categories } = frontmatter
+
+  return (
+    <Layout fullWidth>
+      <SEO title={frontmatter.title} />
+      <article className="post">
+        <div className="post-header">
+          <PostDate>{frontmatter.date}</PostDate>
+          <PostTitle>{frontmatter.title}</PostTitle>
+          {categories.map(cat => (
+            <Category>{cat}</Category>
+          ))}
+        </div>
+        <ArticleBody
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </article>
+    </Layout>
+  )
 }
-
-export default Post
+export const pageQuery = graphql`
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        categories
+        date(formatString: "MMMM DD, YYYY")
+        slug
+        title
+      }
+    }
+  }
+`

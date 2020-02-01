@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import logo from '../images/logo.png'
 
@@ -11,7 +11,8 @@ const Header = ({ siteTitle, siteDesc }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div className="header-wrap"
+    <div
+      className="header-wrap"
       style={{
         margin: `0 auto`,
         maxWidth: 1170,
@@ -22,16 +23,42 @@ const Header = ({ siteTitle, siteDesc }) => (
         justifyContent: `space-between`,
       }}
     >
-      <div className="logo"
+      <div
+        className="logo"
         style={{
           display: `flex`,
           flexFlow: `row nowrap`,
           alignItems: `center`,
         }}
       >
-        <img src={logo} alt="logo" width="75" style={{display: 'inline-block', marginBottom: 0, marginRight: `15px`}} />
-        <div className="title-group" style={{display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `flex-start`}}>
-          <h1 style={{ margin: 0, display: 'inline-block', fontFamily: `'Kelson Sans', sans-serif`, fontSize: '1.5rem', fontWeight: `bold` }}>
+        <img
+          src={logo}
+          alt="logo"
+          width="75"
+          style={{
+            display: 'inline-block',
+            marginBottom: 0,
+            marginRight: `15px`,
+          }}
+        />
+        <div
+          className="title-group"
+          style={{
+            display: `flex`,
+            flexDirection: `column`,
+            justifyContent: `center`,
+            alignItems: `flex-start`,
+          }}
+        >
+          <h1
+            style={{
+              margin: 0,
+              display: 'inline-block',
+              fontFamily: `'Kelson Sans', sans-serif`,
+              fontSize: '1.5rem',
+              fontWeight: `bold`,
+            }}
+          >
             <Link
               to="/"
               style={{
@@ -42,18 +69,27 @@ const Header = ({ siteTitle, siteDesc }) => (
               {siteTitle}
             </Link>
           </h1>
-          <h2 style={{marginBottom: 0, color: `#233434`, fontSize: `1.15rem`, fontWeight: `300` }}>
+          <h2
+            style={{
+              marginBottom: 0,
+              color: `#233434`,
+              fontSize: `1.15rem`,
+              fontWeight: `300`,
+            }}
+          >
             {siteDesc}
           </h2>
         </div>
       </div>
-      
+
       <nav className="primary-nav">
-        <Link to="/" activeClassName="active">Home</Link>
-        <Link to="/blog" activeClassName="active">Blog</Link>
-        <Link to="/domains" activeClassName="active">Domains</Link>
+        <Link to="/" activeClassName="active">
+          The Swamp
+        </Link>
         {/* eslint-disable-next-line */}
-        <a href="https://domaincord.com" target="_blank">DomainCord</a>
+        <a href="https://domaincord.com" target="_blank">
+          Domaincord
+        </a>
       </nav>
     </div>
   </header>
