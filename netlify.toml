@@ -4,7 +4,3 @@
 [build.environment]
   YARN_VERSION = "1.21.1"
   YARN_FLAGS = "--no-ignore-optional"
-[[redirects]]
-  from = "https://croc.domains/*"
-  to = "https://crockerbytes.com/:splat"
-  status = 301
