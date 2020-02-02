@@ -25,6 +25,15 @@ const ArticleBody = styled.div`
     font-weight: normal;
     font-size: 1rem;
     line-height: 2rem;
+
+    img {
+      width: 100px;
+      transition: width 1s;
+
+      &:hover {
+        width: 400px;
+      }
+    }
   }
 `
 
