@@ -15,6 +15,8 @@ import Sidebar from './sidebar'
 import './layout.css'
 import igIcon from '../images/ig.svg'
 import twtrIcon from '../images/twtr.svg'
+import ghIcon from '../images/gh.png'
+import drbIcon from '../images/drb.png'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -80,17 +82,7 @@ const Layout = ({ fullWidth, children }) => {
         <PageContent className="page-content">
           <Main>{children}</Main>
           {!fullWidth ? (
-            <Sidebar>
-              <a href="https://my.escrow.com/partner.asp?pid=0">
-                <img
-                  src="https://secureapi.escrow.com/api/ecart/Content/Images/Affiliate%20Banners/Escow_Banner_300x250.jpg"
-                  width="300"
-                  height="250"
-                  alt="Escrow.com: Buy or Sell Online Without the Fear of Fraud"
-                  border="0"
-                />
-              </a>
-            </Sidebar>
+            <Sidebar>&nbsp;</Sidebar>
           ) : null}
         </PageContent>
 
@@ -101,6 +93,12 @@ const Layout = ({ fullWidth, children }) => {
             </a>
             <a href="https://instagram.com/crocdesigns">
               <img src={igIcon} alt="instagram icon" />
+            </a>
+            <a href="https://github.com/crock">
+              <img src={ghIcon} alt="github icon" />
+            </a>
+            <a href="https://dribbble.com/croc">
+              <img src={drbIcon} alt="dribbble icon" />
             </a>
           </Socials>
           © {new Date().getFullYear()} Alex Crocker, Built with

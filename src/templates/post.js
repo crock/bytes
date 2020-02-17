@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
 import SEO from '../components/seo'
 import styled from 'styled-components'
+import withUtterances from 'with-utterances'
 
 const PostDate = styled.small`
   text-transform: uppercase;
@@ -45,20 +45,20 @@ const Category = styled.span`
   margin: 3px;
 `
 
-export default function Template({ data }) {
+const PostTemplate = function Template({ data }) {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const { categories } = frontmatter
 
   return (
-    <Layout fullWidth>
+    <>
       <SEO title={frontmatter.title} />
       <article className="post">
         <div className="post-header">
           <PostDate>{frontmatter.date}</PostDate>
           <PostTitle>{frontmatter.title}</PostTitle>
           {categories.map(cat => (
-            <Category>{cat}</Category>
+            <Category key={cat}>{cat}</Category>
           ))}
         </div>
         <ArticleBody
@@ -66,9 +66,10 @@ export default function Template({ data }) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
-    </Layout>
+    </>
   )
 }
+
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -82,3 +83,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default withUtterances(PostTemplate, 'crock/swamp-comments', 'github-light', 'pathname')
