@@ -87,8 +87,11 @@ const Header = ({ siteTitle, siteDesc }) => (
           The Swamp
         </Link>
         {/* eslint-disable-next-line */}
-        <a href="https://domaincord.com" target="_blank">
+        <a href="https://domaincord.com" target="_blank" rel="noopener noreferrer">
           Domaincord
+        </a>
+        <a href="https://starterstorm.com" target="_blank" rel="noopener noreferrer">
+          Starter Storm
         </a>
       </nav>
     </div>

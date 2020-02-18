@@ -51,7 +51,7 @@ const ReadButton = styled(Link)`
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
         edges {
           node {
             id
