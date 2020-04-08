@@ -662,7 +662,7 @@ pre tt:after {
   }
 }
 
-.primary-nav > a {
+.primary-nav a,button {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -670,17 +670,17 @@ pre tt:after {
   padding: 5px 10px;
 } 
 
-.primary-nav > a:hover {
+.primary-nav a:hover {
   color: #3ead5a;
   position: relative;
 }
 
-.primary-nav > .active {
+.primary-nav .active {
   color: #3ead5a;
   position: relative;
 }
 
-.primary-nav > .active::after {
+.primary-nav .active::after {
   content: '';
   display: block;
   position: absolute;
@@ -692,7 +692,7 @@ pre tt:after {
   transform: translateX(-50%);
 }
 
-.primary-nav > a:hover::after {
+.primary-nav a:hover::after {
   content: '';
   display: block;
   position: absolute;
@@ -750,4 +750,56 @@ pre tt:after {
   .card.domain-card {
     flex-basis: 33.333%;
   }
+}
+
+.primary-nav .dropdown-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  outline: none;
+}
+
+.dropdown-btn span {
+  padding: 0;
+  margin: 0;
+  width: 16px;
+  margin-left: 5px;
+}
+
+.dropdown-btn span img {
+  margin-bottom: 0;
+}
+
+.sub-nav {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  display: block;
+  width: 150px;
+  height: auto;
+  background-color: white;
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 768px) {
+ .sub-nav {
+  top: 175px;
+  left: 100px;
+  right: unset;
+ }
+}
+
+.sub-nav a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: black;
+  padding: 5px 10px;
+  display: block;
+}
+
+.sub-nav a:hover {
+  background-color: #f3f3f3;
 }

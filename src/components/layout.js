@@ -17,6 +17,7 @@ import igIcon from '../images/ig.svg'
 import twtrIcon from '../images/twtr.svg'
 import ghIcon from '../images/gh.png'
 import drbIcon from '../images/drb.png'
+import twitchIcon from '../images/twitch.png'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -82,7 +83,9 @@ const Layout = ({ fullWidth, children }) => {
         <PageContent className="page-content">
           <Main>{children}</Main>
           {!fullWidth ? (
-            <Sidebar>&nbsp;</Sidebar>
+            <Sidebar>
+              <iframe title="Discord Widget" src="https://discordapp.com/widget?id=368060065170849793&theme=light" width="350" height="500" allowTransparency="true" frameBorder="0"></iframe>
+            </Sidebar>
           ) : null}
         </PageContent>
 
@@ -99,6 +102,9 @@ const Layout = ({ fullWidth, children }) => {
             </a>
             <a href="https://dribbble.com/croc">
               <img src={drbIcon} alt="dribbble icon" />
+            </a>
+            <a href="https://twitch.tv/gators">
+              <img src={twitchIcon} alt="twitch icon" />
             </a>
           </Socials>
           © {new Date().getFullYear()} Alex Crocker, Built with

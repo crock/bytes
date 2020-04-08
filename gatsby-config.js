@@ -36,6 +36,13 @@ module.exports = {
         name: `markdown-posts`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/domains`,
+        name: `domains`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
