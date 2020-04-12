@@ -70,8 +70,8 @@ const IndexPage = () => {
   const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
 
   return (
-    <Layout>
-      <SEO title="The Swamp" description="Journey into the depths of the swamp to uncover the mysteries that lie within the mind of Alex Crocker." />
+    <Layout fullWidth={true}>
+      <SEO title="Home" description="Where Alex Crocker shares his throughts and knowledge on tech, design, coding, and domain names." />
       {posts.map(post => (
         <PostBit key={post.id}>
           <PostDate>{post.frontmatter.date}</PostDate>

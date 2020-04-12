@@ -89,6 +89,9 @@ const Header = ({ siteTitle, siteDesc }) => {
   
         <nav className="primary-nav">
           <Link to="/" activeClassName="active">
+            Home
+          </Link>
+          <Link to="/the-swamp" activeClassName="active">
             The Swamp
           </Link>
           <button className="dropdown-btn" onClick={() => setDropdownActive(!dropdownActive)}>

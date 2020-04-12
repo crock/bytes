@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://crockerbytes.com`,
     title: `Crocker Bytes`,
     description: `inside the mind of a croc`,
-    author: `@crocdomains`,
+    author: `@crockerbytes`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,13 +34,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/markdown-posts`,
         name: `markdown-posts`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/domains`,
-        name: `domains`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -17,7 +17,6 @@ import igIcon from '../images/ig.svg'
 import twtrIcon from '../images/twtr.svg'
 import ghIcon from '../images/gh.png'
 import drbIcon from '../images/drb.png'
-import twitchIcon from '../images/twitch.png'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -61,7 +60,14 @@ const Socials = styled.div`
   }
 `
 
-const Layout = ({ fullWidth, children }) => {
+const PageHero = styled.img`
+  width: 100%;
+  height: 400px;
+  margin: 25px 0;
+  border-radius: 25px;
+`
+
+const Layout = ({ fullWidth = false, hero = null, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -80,21 +86,25 @@ const Layout = ({ fullWidth, children }) => {
         siteDesc={data.site.siteMetadata.description}
       />
       <Container>
+        { hero 
+            ? <PageHero src={hero.src} alt={hero.alt} />
+            : null
+        }
         <PageContent className="page-content">
           <Main>{children}</Main>
           {!fullWidth ? (
             <Sidebar>
-              <iframe title="Discord Widget" src="https://discordapp.com/widget?id=368060065170849793&theme=light" width="350" height="500" allowTransparency="true" frameBorder="0"></iframe>
+              <iframe title="Discord Widget" src="https://discordapp.com/widget?id=368060065170849793&theme=light" width="350" height="500" allowtransparency="true" frameBorder="0"></iframe>
             </Sidebar>
           ) : null}
         </PageContent>
 
         <Footer>
           <Socials className="social-icons">
-            <a href="https://twitter.com/crocdomains">
+            <a href="https://twitter.com/crockerbytes">
               <img src={twtrIcon} alt="twitter icon" />
             </a>
-            <a href="https://instagram.com/crocdesigns">
+            <a href="https://instagram.com/crockerbytes">
               <img src={igIcon} alt="instagram icon" />
             </a>
             <a href="https://github.com/crock">
@@ -102,9 +112,6 @@ const Layout = ({ fullWidth, children }) => {
             </a>
             <a href="https://dribbble.com/croc">
               <img src={drbIcon} alt="dribbble icon" />
-            </a>
-            <a href="https://twitch.tv/gators">
-              <img src={twitchIcon} alt="twitch icon" />
             </a>
           </Socials>
           © {new Date().getFullYear()} Alex Crocker, Built with
