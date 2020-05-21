@@ -15,9 +15,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             html
             frontmatter {
-              categories
-              date
-              slug
+              date(formatString: "MMMM DD, YYYY")
               title
             }
           }
@@ -34,13 +32,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const postTemplate = path.resolve(`./src/templates/post.js`)
   _.each(result.data.allMarkdownRemark.edges, edge => {
     const { frontmatter, html } = edge.node
+    const slug = _.kebabCase(frontmatter.title.replace(/&/g,'-and-'))
     createPage({
       // will be the url for the page
-      path: `/blog/${frontmatter.slug}`,
+      path: `/blog/${slug}`,
       component: slash(postTemplate),
       context: {
         frontmatter,
         html,
+        slug
       },
     })
   })

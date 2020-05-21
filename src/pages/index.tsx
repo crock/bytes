@@ -2,9 +2,10 @@ import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../layouts/'
 import SEO from '../components/seo'
+import { kebabCase } from 'lodash'
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+  const postData = useStaticQuery(graphql`
     {
       allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
         edges {
@@ -12,9 +13,7 @@ const IndexPage = () => {
             id
             html
             frontmatter {
-              categories
               date(formatString: "MMMM DD, YYYY")
-              slug
               title
             }
           }
@@ -22,7 +21,7 @@ const IndexPage = () => {
       }
     }
   `)
-  const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
+  const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
 
   return (
     <Layout>
@@ -33,16 +32,26 @@ const IndexPage = () => {
           <h2>About Me</h2>
           <p>Hi, <strong>my name is Alex</strong>, it's nice to meet you! I am a passionate <strong>full-stack web developer</strong> with countless ideas to make the world a better place through my work. When I'm not <strong>helping my clients fulfill their visions</strong> and <strong>mentoring aspiring young developers</strong> on the <a href="https://devcord.com">Devcord Discord server</a>, I can be found learning new techniques and building new things to further my career. I have a <strong>commitment to lifelong learning</strong>, which is especially important in the tech industry.</p>
         </section>
+
         <section>
           <h2>The Blog</h2>
-          {posts.map(post => (
-            <article key={post.id} className="article-list-item">
-              <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
-              <Link to={`/blog/${post.frontmatter.slug}`}>
-              {post.frontmatter.title}
-              </Link>
-            </article>
-          ))}
+          <ul>
+            {posts.map(post => (
+              <li key={post.id} className="article-list-item">
+                <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
+                <Link to={`/blog/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
+                {post.frontmatter.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Projects</h2>
+          <ul>
+            <li></li>
+          </ul>
         </section>
       </main>
     </Layout>

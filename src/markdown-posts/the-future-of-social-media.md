@@ -1,10 +1,7 @@
 ---
 type: "blog"
-slug: "the-future-of-social-media"
 date: "2019-01-23"
 title: "The Future of Social Media"
-categories:
-	- "ideas"
 ---
 I have been thinking on this topic for a long time and I believe the future of social media will not be centered around selling user data to advertisers, but selling “likes” as a currency.
 

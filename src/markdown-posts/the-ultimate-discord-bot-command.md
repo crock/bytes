@@ -1,10 +1,7 @@
 ---
 type: "blog"
-slug: "the-ultimate-discord-bot-command"
 date: "2020-02-01"
 title: "The Ultimate Discord Bot Command?"
-categories:
-    - "bots"
 ---
 Last week, I created and launched possibly the coolest Discord bot command to have ever been created and it's exclusive to my community, [Domaincord](https://domaincord.com/discord).
 

@@ -1,10 +1,7 @@
 ---
 type: "blog"
-slug: "how-to-find-the-best-lists-of-expiring-domains-for-dropcatching"
 date: "2019-09-17"
 title: "How to find the best lists of expiring domains for dropcatching"
-categories:
-	- "domaining"
 ---
 Dropcatching is the process of bidding on expiring domain names in hopes that the dropcatching service can successfully snipe the domain on your behalf as soon as it drops.
 
