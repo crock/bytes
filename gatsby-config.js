@@ -1,4 +1,3 @@
-
 module.exports = {
   siteMetadata: {
     siteUrl: `https://crockerbytes.com`,
@@ -10,8 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-105760658-5`
-      }
+        trackingId: `UA-105760658-5`,
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
