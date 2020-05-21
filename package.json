@@ -5,6 +5,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.22.4",
     "gatsby-image": "^2.2.10",
+    "gatsby-plugin-google-analytics": "^2.3.2",
     "gatsby-plugin-manifest": "^2.2.6",
     "gatsby-plugin-postcss": "^2.2.3",
     "gatsby-plugin-react-helmet": "^3.1.4",
@@ -28,11 +29,11 @@
     "prettier": "^1.18.2"
   },
   "scripts": {
-    "clean": "npx gatsby clean",
-    "start": "yarn run develop",
-    "build": "npx gatsby build",
-    "develop": "yarn run clean && npx gatsby develop",
-    "serve": "npx gatsby serve",
+    "clean": "gatsby clean",
+    "start": "yarn develop",
+    "build": "gatsby build",
+    "develop": "gatsby clean && gatsby develop",
+    "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\""
   }
 }

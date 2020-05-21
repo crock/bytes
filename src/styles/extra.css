@@ -15,6 +15,14 @@ main > section {
     h2 {
         @apply font-display font-thin text-2xl mb-2;
     }
+
+    p {
+        @apply font-body font-normal text-lg leading-loose;
+    }
+
+    a {
+        @apply text-green-700 underline;
+    }
 }
 
 .article-list-item {

@@ -1,4 +1,3 @@
-require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -8,6 +7,12 @@ module.exports = {
     author: `@crockerbytes`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-105760658-5`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,
