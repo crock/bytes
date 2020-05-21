@@ -1,0 +1,20 @@
+[
+    {
+        "order": "1",
+        "label": "Home",
+        "url": "/",
+        "external": false
+    },
+    {
+        "order": "4",
+        "label": "Live Streams",
+        "url": "/live",
+        "external": false
+    },
+    {
+        "order": "5",
+        "label": "Contact Me",
+        "url": "/contact",
+        "external": false
+    }
+]

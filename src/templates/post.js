@@ -1,11 +1,13 @@
 import React from 'react'
 import BlogPost from '../components/blog-post'
-import Layout from '../components/layout'
+import Layout from '../layouts/'
 
 const PostTemplate = ({ pageContext }) => {
   return (
-    <Layout fullWidth>
-      <BlogPost post={pageContext} />
+    <Layout>
+      <main className="container mx-auto px-4 md:p-0">
+        <BlogPost post={pageContext} />
+      </main>
     </Layout>
   )
 }

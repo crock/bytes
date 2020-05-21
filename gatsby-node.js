@@ -6,7 +6,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { type: { eq: "blog" } } }
+      ) {
         edges {
           node {
             id
@@ -37,7 +40,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: slash(postTemplate),
       context: {
         frontmatter,
-        html
+        html,
       },
     })
   })
