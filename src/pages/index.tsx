@@ -1,27 +1,11 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../layouts/'
 import SEO from '../components/seo'
-import { kebabCase } from 'lodash'
+import PostList from '../components/PostList'
+import ProjectList from '../components/ProjectList'
 
 const IndexPage = () => {
-  const postData = useStaticQuery(graphql`
-    {
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
-  const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
+  
 
   return (
     <Layout>
@@ -35,23 +19,12 @@ const IndexPage = () => {
 
         <section>
           <h2>The Blog</h2>
-          <ul>
-            {posts.map(post => (
-              <li key={post.id} className="article-list-item">
-                <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
-                <Link to={`/blog/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
-                {post.frontmatter.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <PostList />
         </section>
 
         <section>
           <h2>Projects</h2>
-          <ul>
-            <li></li>
-          </ul>
+          <ProjectList />
         </section>
       </main>
     </Layout>

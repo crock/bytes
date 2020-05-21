@@ -28,8 +28,12 @@ main > section {
 .article-list-item {
     @apply flex flex-col justify-start items-start mb-4;
 
+    h3 {
+        @apply font-body font-black text-lg;
+    }
+
     time {
-        @apply font-body font-semibold;
+        @apply font-body font-semibold text-base;
     }
 
     a {
