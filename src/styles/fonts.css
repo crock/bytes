@@ -2,18 +2,21 @@
     font-family: 'Kelson Sans';
     src: url('../fonts/KelsonSans-Normal.otf');
     font-weight: normal;
+    font-display: swap;
   }
   
   @font-face {
     font-family: 'Kelson Sans';
     src: url('../fonts/KelsonSans-Bold.otf');
     font-weight: bold;
+    font-display: swap;
   }
   
   @font-face {
     font-family: 'Kelson Sans';
     src: url('../fonts/KelsonSans-Light.otf');
     font-weight: thin;
+    font-display: swap;
   }
   
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&display=swap');

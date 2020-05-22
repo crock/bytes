@@ -31,7 +31,7 @@ const ProjectList = () => {
                 <h3>{project.frontmatter.title}</h3>
                 <time dateTime={project.frontmatter.date}>{project.frontmatter.date} {`(${project.frontmatter.termInMonths} months)`}</time>
                 <p style={{margin: 0}}><strong>Tech Stack: </strong>{project.frontmatter.techStack}</p>
-                <a href={project.frontmatter.website} target="_blank">
+                <a href={project.frontmatter.website} target="_blank" rel="noopener">
                   View Project
                 </a>
               </li>
