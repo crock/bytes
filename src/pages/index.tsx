@@ -3,6 +3,7 @@ import Layout from '../layouts/'
 import SEO from '../components/seo'
 import PostList from '../components/PostList'
 import ProjectList from '../components/ProjectList'
+import JobList from '../components/JobList'
 
 const IndexPage = () => {
   
@@ -25,6 +26,11 @@ const IndexPage = () => {
         <section>
           <h2>Projects</h2>
           <ProjectList />
+        </section>
+
+        <section>
+          <h2>Jobs</h2>
+          <JobList />
         </section>
       </main>
     </Layout>

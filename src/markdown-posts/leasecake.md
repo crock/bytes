@@ -1,5 +1,5 @@
 ---
-type: "project"
+type: "job"
 date: "2019-10-01"
 title: "Leasecake - Full Stack Web Developer"
 website: "https://leasecake.com"

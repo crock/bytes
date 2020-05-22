@@ -1,5 +1,5 @@
 ---
-type: "project"
+type: "job"
 date: "2019-03-01"
 title: "CNC Machines - Front-End Web Developer"
 website: "https://cncmachines.com"
