@@ -27,6 +27,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto Mono`,
+            variants: [`300`, `400`, `700`, `900`],
+            fontDisplay: 'swap'
+          },
+          {
+            family: `Heebo`,
+            variants: [`100`, `700`],
+            fontDisplay: 'swap'
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
