@@ -4,7 +4,6 @@ import ILayout from './ILayout'
 import Header from '../components/header/'
 import Footer from '../components/footer/'
 
-import '../styles/fonts.css'
 import '../styles/tailwind.css'
 import '../styles/extra.css'
 
