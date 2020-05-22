@@ -59,11 +59,11 @@ main > section {
 }
 
 .site-title {
-    @apply font-display font-bold text-2xl text-green-200;
+    @apply font-display font-bold text-2xl text-green-200 tracking-widest;
 }
 
 .tagline {
-    @apply font-display font-normal text-base text-white;
+    @apply font-display font-thin text-base text-white;
 }
 
 .post {

@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ['Kelson Sans', 'sans-serif'],
+      display: ['Heebo', 'sans-serif'],
       body: ['Roboto', 'sans-serif'],
     },
     screens: {
