@@ -12,6 +12,7 @@ module.exports = {
         trackingId: `UA-105760658-5`,
       },
     },
+    `gatsby-remark-embedder`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,

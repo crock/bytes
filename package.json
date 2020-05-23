@@ -14,6 +14,7 @@
     "gatsby-plugin-sharp": "^2.2.13",
     "gatsby-plugin-sitemap": "^2.2.12",
     "gatsby-plugin-styled-components": "^3.1.5",
+    "gatsby-remark-embedder": "^2.0.1",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-source-filesystem": "^2.1.11",
     "gatsby-transformer-remark": "^2.6.49",
@@ -33,9 +34,9 @@
   },
   "scripts": {
     "clean": "gatsby clean",
-    "start": "yarn develop",
-    "build": "gatsby build",
-    "develop": "gatsby clean && gatsby develop",
+    "start": "npm run develop",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
+    "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\""
   }
