@@ -2,6 +2,11 @@ const path = require('path')
 const slash = require('slash')
 const _ = require('lodash')
 
+const getSlug = path => {
+  const regex = /([\w-]+).(md|mdx)$/g
+  return regex.exec(path)[1]
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -14,6 +19,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             id
             html
+            fileAbsolutePath
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
               title
@@ -31,8 +37,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const postTemplate = path.resolve(`./src/templates/post.js`)
   _.each(result.data.allMarkdownRemark.edges, edge => {
-    const { frontmatter, html } = edge.node
-    const slug = _.kebabCase(frontmatter.title.replace(/&/g, '-and-'))
+    const { frontmatter, html, fileAbsolutePath } = edge.node
+    const slug = getSlug(fileAbsolutePath)
+
     createPage({
       // will be the url for the page
       path: `/${slug}`,

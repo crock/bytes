@@ -10,6 +10,7 @@ const PostList = () => {
           node {
             id
             html
+            fileAbsolutePath
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
               title
@@ -21,6 +22,10 @@ const PostList = () => {
   `)
 
 const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
+const getSlug = path => {
+  const regex = /([\w-]+).(md|mdx)$/g
+  return regex.exec(path)[1];
+}
 
     return (
         <ul style={{listStyleType: 'none', paddingLeft: 0}}>
@@ -29,7 +34,7 @@ const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
                 <div style={{width: 175, display: 'inline-block'}}>
                   <span>{post.frontmatter.date}</span>
                 </div>
-                <Link to={`/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
+                <Link to={`/${ getSlug(post.fileAbsolutePath) }`}>
                   {post.frontmatter.title}
                 </Link>
               </li>

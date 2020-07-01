@@ -17,11 +17,18 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
+            },
+          },
+          {
+            resolve: `gatsby-remark-embed-gist`,
+            options: {
+              includeDefaultCss: false,
             },
           },
         ],
@@ -39,6 +46,12 @@ module.exports = {
       options: {
         path: `${__dirname}/src/markdown-posts`,
         name: `markdown-posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
       },
     },
     `gatsby-transformer-sharp`,

@@ -49,5 +49,5 @@ export default withUtterances(
   'crock/bytes',
   'github-light',
   'title',
-  'Blog Post',
+  'Blog Post'
 )
