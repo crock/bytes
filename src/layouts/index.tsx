@@ -18,7 +18,7 @@ const Layout = ({children}: ILayout) => {
 
     return (
         <>
-            <Header siteTitle={data.site.siteMetadata.title} tagline={data.site.siteMetadata.description} />
+            <Header siteTitle={data.site.siteMetadata.title} />
             {children}
             <Footer />
         </>

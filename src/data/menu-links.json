@@ -7,14 +7,8 @@
     },
     {
         "order": "4",
-        "label": "Live Streams",
-        "url": "/live",
-        "external": false
-    },
-    {
-        "order": "5",
-        "label": "Contact Me",
-        "url": "/contact",
+        "label": "My Resumé",
+        "url": "/cv",
         "external": false
     }
 ]

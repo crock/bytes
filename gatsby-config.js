@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://crockerbytes.com`,
-    title: `Crocker Bytes`,
-    description: `inside the mind of a croc`,
+    title: `Full-Stack Web Developer`,
+    description: `Where Alex Crocker shares his thoughts on tech and byte-sized tutorials on software development, system administration, and design.`,
     author: `@crockerbytes`,
   },
   plugins: [
@@ -23,23 +23,6 @@ module.exports = {
             options: {
               maxWidth: 800,
             },
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto Mono`,
-            variants: [`300`, `400`, `700`, `900`],
-            fontDisplay: 'swap'
-          },
-          {
-            family: `Heebo`,
-            variants: [`100`, `700`],
-            fontDisplay: 'swap'
           },
         ],
       },
@@ -74,6 +57,5 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
-    'gatsby-plugin-postcss',
   ],
 }

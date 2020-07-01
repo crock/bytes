@@ -27,14 +27,19 @@ const JobList = () => {
   const jobs = jobData.allMarkdownRemark.edges.map(edge => edge.node)
 
     return (
-        <ul>
+        <ul style={{listStyleType: 'none'}}>
             {jobs.map(job => (
-              <li key={job.id} className="article-list-item">
+              <li key={job.id}>
                 <h3>{job.frontmatter.title}</h3>
-                <time dateTime={job.frontmatter.date}>{moment(job.frontmatter.date, 'YYYY-MM-DD').format('MMMM DD, YYYY').toString()} ({`${job.frontmatter.termInMonths} months`})</time>
-            <p style={{margin: 0}}><strong>Tech Stack: </strong>{job.frontmatter.techStack}</p>
+                <dl>
+                    <dt>Start Date</dt>
+                    <dd>{moment(job.frontmatter.date, 'YYYY-MM-DD').format('MMMM YYYY').toString()} ({`${job.frontmatter.termInMonths} months`})</dd>
+
+                    <dt>Tech Stack</dt>
+                    <dd>{job.frontmatter.techStack}</dd>
+                </dl>
                 <div className="flex flex-row">
-                  { job.frontmatter.website ? <a className="mr-2" href={job.frontmatter.website} target="_blank" rel="noopener">View Website</a> : null }
+                  { job.frontmatter.website ? <a style={{marginRight: 15}} href={job.frontmatter.website} target="_blank" rel="noopener">View Website</a> : null }
                   { job.frontmatter.repo ? <a href={job.frontmatter.repo} target="_blank" rel="noopener">View Repository</a> : null }
                 </div>
               </li>

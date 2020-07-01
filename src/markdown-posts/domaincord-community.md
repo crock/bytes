@@ -5,4 +5,5 @@ title: "Domaincord Discord Community"
 website: "https://domaincord.org"
 repo: "https://github.com/domaincord"
 techStack: "JavaScript Node.js Discord.js Firebase"
+ongoing: true
 ---

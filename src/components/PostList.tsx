@@ -23,16 +23,18 @@ const PostList = () => {
 const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
 
     return (
-        <ul>
+        <ul style={{listStyleType: 'none', paddingLeft: 0}}>
             {posts.map(post => (
-              <li key={post.id} className="article-list-item">
-                <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
+              <li key={post.id} style={{padding: '10px 0'}}>
+                <div style={{width: 175, display: 'inline-block'}}>
+                  <span>{post.frontmatter.date}</span>
+                </div>
                 <Link to={`/blog/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
-                {post.frontmatter.title}
+                  {post.frontmatter.title}
                 </Link>
               </li>
             ))}
-          </ul>
+        </ul>
     )
 }
 

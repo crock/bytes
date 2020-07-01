@@ -1,39 +1,37 @@
 import React from 'react'
-import Layout from '../layouts/'
 import SEO from '../components/seo'
 import PostList from '../components/PostList'
-import ProjectList from '../components/ProjectList'
-import JobList from '../components/JobList'
+import Wrapper from '../components/Wrapper'
+import { Link } from 'gatsby'
 
 const IndexPage = () => {
   
 
   return (
-    <Layout>
-      <SEO title="Croc's Swamp" description="Where Alex Crocker shares his throughts and knowledge on tech, design, coding, and domain names." />
-      <main className="container mx-auto px-4 md:p-0">
-        <h1 className="page-title">Welcome to Croc's Swamp!</h1>
+    <>
+      <SEO title="Crocker Bytes" />
+      <Wrapper>
+        <h1>Welcome to Crocker Bytes!</h1>
+        <div style={{padding: '1rem 0'}}>
+          <div>
+            <span role="img" aria-label="crocodile" className="giant-emoji">🐊</span>
+            <span role="img" aria-label="waving hand" className="giant-emoji">👋</span>
+            <span role="img" aria-label="smile" className="giant-emoji">😊</span>
+          </div>
+          <em>Don't worry, I don't actually BITE!</em>
+        </div>
         <section>
           <h2>About Me</h2>
           <p>Hi, <strong>my name is Alex</strong>, it's nice to meet you! I am a passionate <strong>full-stack web developer</strong> with countless ideas to make the world a better place through my work. When I'm not <strong>helping my clients fulfill their visions</strong> and <strong>mentoring aspiring young developers</strong> on the <a href="https://devcord.com">Devcord Discord server</a>, I can be found learning new techniques and building new things to further my career. I have a <strong>commitment to lifelong learning</strong>, which is especially important in the tech industry.</p>
+          <p><span role="img" aria-label="finger pointing right" style={{marginRight: 15}}>👉</span>If you are a recruiter or want to hire me, <Link to="/cv">click here</Link> for my resumé!</p>
         </section>
 
         <section>
           <h2>The Blog</h2>
           <PostList />
         </section>
-
-        <section>
-          <h2>Projects</h2>
-          <ProjectList />
-        </section>
-
-        <section>
-          <h2>Jobs</h2>
-          <JobList />
-        </section>
-      </main>
-    </Layout>
+      </Wrapper>
+    </>
   )
 }
 

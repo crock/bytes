@@ -3,7 +3,7 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import ILogo from './@interfaces/ILogo'
 
-const Logo = ({siteTitle, tagline, displayText = true}: ILogo) => {
+const Logo = ({siteTitle, tagline = null, displayText = true}: ILogo) => {
 
     return (
         <StaticQuery
@@ -30,7 +30,7 @@ const Logo = ({siteTitle, tagline, displayText = true}: ILogo) => {
                 { displayText ? (
                     <div className="text-group">
                         <div className="site-title">{siteTitle}</div>
-                        <div className="tagline">{tagline}</div>
+                        { tagline ? <div className="tagline">{tagline}</div> : null }
                     </div>
                 ) : null }
             </Link>

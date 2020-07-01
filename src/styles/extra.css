@@ -1,98 +1,67 @@
-.page-title {
-    @apply font-display font-bold text-3xl;
+:root {
+    --display-font-stack: 'Heebo', sans-serif;
+    --body-font-stack: 'Inter', 'Avenir', sans-serif;
+    --primary-color: #48bb78;
+    --link-color: #38a169;
+    --link-color-hover: #2f855a;
 }
 
-main > section {
-    @apply py-4;
-
-    h2 {
-        @apply font-display font-thin text-2xl mb-2;
-    }
-
-    p {
-        @apply font-body font-normal text-lg leading-loose;
-    }
-
-    a {
-        @apply text-green-700 underline;
-    }
+body {
+    font-size: 16px;
+    font-family: var(--body-font-stack);
 }
 
-.article-list-item {
-    @apply flex flex-col justify-start items-start mb-4;
+a { color: var(--link-color); }
+a:hover { color: var(--link-color-hover); }
 
-    h3 {
-        @apply font-body font-black text-lg;
-    }
+p {
+    font-size: 1.125rem;
+    font-weight: normal;
+    line-height: 2;
+}
 
-    time {
-        @apply font-body font-semibold text-base;
-    }
+h1 {
+    font-weight: black;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
 
-    a {
-        @apply text-green-700 underline;
-    }
+h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
 
-    &:last-of-type {
-        margin-bottom: 0;
-    }
+h3 {
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin: 1.5rem 0 1rem;
+}
+
+section {
+    padding: 1rem 0;
 }
 
 .social-icons {
-    @apply flex flex-row justify-start items-center mb-4;
-        
-    a {
-        margin-right: .5rem;
-
-        &:last-of-type {
-            margin-right: 0;
-        }
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.logo {
-    @apply flex flex-row flex-no-wrap justify-start items-center;
+.social-icons > a { margin-right: 0.5rem; }
+.social-icons > a:last-of-type { margin-right: 0; }
+
+.giant-emoji {
+    font-size: 4rem;
+    margin-right: 15px;
 }
 
-.text-group {
-    @apply flex flex-col justify-center items-start;
+article {
+    padding-top: 50px;
 }
 
-.site-title {
-    @apply font-display font-bold text-2xl text-green-200 tracking-widest;
-}
-
-.tagline {
-    @apply font-display font-thin text-base text-white;
-}
-
-.post {
-    @apply flex flex-col justify-start items-start;
-
-    .post-header {
-        @apply mb-4;
-
-        h1 {
-            @apply font-display font-bold text-3xl;
-        }
-
-        time {
-            @apply font-display font-normal text-2xl;
-        }
-    }
-
-    .post-content {
-        @apply flex flex-col font-body font-normal text-lg leading-loose;
-
-        a {
-            @apply text-green-700 underline;
-        }
-
-        img {
-            margin: 5px;
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-        }
-    }
+@media only print {
+    #goback { display: none; }
 }
