@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const slug = _.kebabCase(frontmatter.title.replace(/&/g, '-and-'))
     createPage({
       // will be the url for the page
-      path: `/blog/${slug}`,
+      path: `/${slug}`,
       component: slash(postTemplate),
       context: {
         frontmatter,

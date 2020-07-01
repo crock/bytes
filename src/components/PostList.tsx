@@ -29,7 +29,7 @@ const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
                 <div style={{width: 175, display: 'inline-block'}}>
                   <span>{post.frontmatter.date}</span>
                 </div>
-                <Link to={`/blog/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
+                <Link to={`/${ kebabCase(post.frontmatter.title.replace(/&/g,'-and-')) }`}>
                   {post.frontmatter.title}
                 </Link>
               </li>

@@ -46,7 +46,8 @@ const BlogPost = ({ post }) => {
 
 export default withUtterances(
   BlogPost,
-  'crock/swamp-comments',
+  'crock/bytes',
   'github-light',
-  'pathname'
+  'title',
+  'Blog Post',
 )

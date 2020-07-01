@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://crockerbytes.com`,
-    title: `Full-Stack Web Developer`,
-    description: `Where Alex Crocker shares his thoughts on tech and byte-sized tutorials on software development, system administration, and design.`,
+    title: ``,
+    description: ``,
     author: `@crockerbytes`,
   },
   plugins: [
