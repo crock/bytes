@@ -42,7 +42,7 @@ const EducationList = () => {
                     <dd>{education.frontmatter.major}</dd>
                 </dl>
                 <HStack>
-                  { education.frontmatter.website ? <a href={education.frontmatter.website} target="_blank" rel="noopener">View Site</a> : null }
+                  { education.frontmatter.website ? <a href={education.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Site</a> : null }
                 </HStack>
               </li>
             ))}

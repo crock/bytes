@@ -1,0 +1,39 @@
+/**
+ * Print Stylesheet
+* @version         1.0
+* @lastmodified    2020-07-05
+*/
+
+@media print {
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+ 
+    #goback { display: none; }
+    .no-print { display: none; }
+
+    p {
+        line-height: 1.25;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 10px 0;
+    }
+
+    iframe { display: none; }
+
+}

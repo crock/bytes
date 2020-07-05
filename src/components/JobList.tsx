@@ -39,8 +39,8 @@ const JobList = () => {
                     <dd>{job.frontmatter.techStack}</dd>
                 </dl>
                 <div className="flex flex-row">
-                  { job.frontmatter.website ? <a style={{marginRight: 15}} href={job.frontmatter.website} target="_blank" rel="noopener">View Website</a> : null }
-                  { job.frontmatter.repo ? <a href={job.frontmatter.repo} target="_blank" rel="noopener">View Repository</a> : null }
+                  { job.frontmatter.website ? <a style={{marginRight: 15}} href={job.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Website</a> : null }
+                  { job.frontmatter.repo ? <a href={job.frontmatter.repo} target="_blank" rel="noopener" className="no-print">View Repository</a> : null }
                 </div>
               </li>
             ))}

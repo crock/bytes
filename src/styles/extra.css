@@ -61,7 +61,3 @@ section {
 article {
     padding-top: 50px;
 }
-
-@media only print {
-    #goback { display: none; }
-}

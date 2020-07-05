@@ -48,8 +48,8 @@ const ProjectList = () => {
                     <dd>{project.frontmatter.techStack}</dd>
                 </dl>
                 <div className="flex flex-row">
-                  { project.frontmatter.website ? <a style={{marginRight: 15}} href={project.frontmatter.website} target="_blank" rel="noopener">View Project</a> : null }
-                  { project.frontmatter.repo ? <a href={project.frontmatter.repo} target="_blank" rel="noopener">View Repository</a> : null }
+                  { project.frontmatter.website ? <a style={{marginRight: 15}} href={project.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Project</a> : null }
+                  { project.frontmatter.repo ? <a href={project.frontmatter.repo} target="_blank" rel="noopener" className="no-print">View Repository</a> : null }
                 </div>
               </li>
             ))}
