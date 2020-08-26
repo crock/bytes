@@ -1,6 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import { timeStamp } from 'console'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const PostList = () => {
     const data = useStaticQuery(graphql`
@@ -25,9 +24,7 @@ const posts = data.allTumblrPost.edges.map(edge => edge.node)
         <ul style={{listStyleType: 'none', paddingLeft: 0}}>
             {posts.map(post => (
               <li key={post.id} style={{padding: '10px 0'}}>
-                <div style={{width: 175, display: 'inline-block'}}>
-                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
-                </div>
+                <time dateTime={post.date} style={{marginRight: 15}}>{post.date.split(' ')[0]}</time>
                 <a href={post.short_url} target="_blank">
                   {post.title}
                 </a>
