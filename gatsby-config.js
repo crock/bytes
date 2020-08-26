@@ -7,12 +7,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-105760658-5`,
-      },
-    },
-    {
       resolve: `gatsby-source-tumblr`,
       options: {
         blogIdentifier: `alexcrocker`,
