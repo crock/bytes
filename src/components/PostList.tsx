@@ -25,7 +25,7 @@ const posts = data.allTumblrPost.edges.map(edge => edge.node)
             {posts.map(post => (
               <li key={post.id} style={{padding: '10px 0'}}>
                 <time dateTime={post.date} style={{marginRight: 15}}>{post.date.split(' ')[0]}</time>
-                <a href={post.short_url} target="_blank">
+                <a href={post.short_url} target="_blank" rel="noopener">
                   {post.title}
                 </a>
               </li>

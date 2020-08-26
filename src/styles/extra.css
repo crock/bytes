@@ -1,7 +1,5 @@
 :root {
-    --display-font-stack: 'Heebo', sans-serif;
-    --body-font-stack: 'Inter', 'Avenir', sans-serif;
-    --primary-color: #48bb78;
+    --body-font-stack: 'Inter', 'Avenir', Arial, sans-serif;
     --link-color: #38a169;
     --link-color-hover: #2f855a;
 }
