@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { navigate } from 'gatsby'
 import SEO from '../components/seo'
 import PostList from '../components/PostList'
 import ProjectList from '../components/ProjectList'
@@ -9,6 +10,22 @@ import Layout from '../layouts/index'
 import '../styles/styles.css'
 
 const IndexPage = () => {
+
+  useEffect(() => {
+    if (window.location.search.length) {
+      let qs = window.location.search.slice(1).split('&')
+      qs.forEach(param => {
+        let parts = param.split('=')
+        if (parts[0] === 'dn') {
+          navigate('/contact', {
+            state: {
+              subject: parts[1]
+            }
+          })
+        }
+      })
+    }
+  }, [])
   
 
   return (
