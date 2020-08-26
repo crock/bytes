@@ -1,24 +1,13 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import ILayout from './ILayout'
-import Header from '../components/header/'
-import Footer from '../components/footer/'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Layout = ({children}: ILayout) => {
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-        site {
-            siteMetadata {
-                title
-                description
-            }
-        }
-        }
-    `)
 
     return (
         <>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header />
             {children}
             <Footer />
         </>

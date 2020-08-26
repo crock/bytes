@@ -26,13 +26,14 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const formattedTitle = `${title} | ${site.siteMetadata.title}`
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={formattedTitle}
       meta={[
         {
           name: `description`,
@@ -40,7 +41,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: formattedTitle,
         },
         {
           property: `og:description`,
@@ -60,7 +61,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: formattedTitle,
         },
         {
           name: `twitter:description`,

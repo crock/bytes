@@ -1,42 +1,36 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import { kebabCase } from 'lodash'
+import { timeStamp } from 'console'
 
 const PostList = () => {
-    const postData = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
-        edges {
-          node {
-            id
-            html
-            fileAbsolutePath
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
+        allTumblrPost(filter: {blog_name: {eq: "alexcrocker"}, type: {eq: "text"}}) {
+          edges {
+            node {
+              id
+              date
+              timestamp
               title
+              short_url
             }
           }
         }
-      }
     }
   `)
 
-const posts = postData.allMarkdownRemark.edges.map(edge => edge.node)
-const getSlug = path => {
-  const regex = /([\w-]+).(md|mdx)$/g
-  return regex.exec(path)[1];
-}
+const posts = data.allTumblrPost.edges.map(edge => edge.node)
 
     return (
         <ul style={{listStyleType: 'none', paddingLeft: 0}}>
             {posts.map(post => (
               <li key={post.id} style={{padding: '10px 0'}}>
                 <div style={{width: 175, display: 'inline-block'}}>
-                  <span>{post.frontmatter.date}</span>
+                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
                 </div>
-                <Link to={`/${ getSlug(post.fileAbsolutePath) }`}>
-                  {post.frontmatter.title}
-                </Link>
+                <a href={post.short_url} target="_blank">
+                  {post.title}
+                </a>
               </li>
             ))}
         </ul>

@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialIcons from '../SocialIcons'
+import SocialIcons from './SocialIcons'
 
 const Footer = () => {
 

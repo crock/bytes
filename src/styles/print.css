@@ -36,4 +36,8 @@
 
     iframe { display: none; }
 
+    section#blog { display: none; }
+
+    footer { display: none; }
+
 }

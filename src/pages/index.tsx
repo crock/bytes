@@ -1,36 +1,47 @@
 import React from 'react'
 import SEO from '../components/seo'
 import PostList from '../components/PostList'
-import { Link } from 'gatsby'
-import SocialIcons from '../components/SocialIcons'
+import ProjectList from '../components/ProjectList'
+import JobList from '../components/JobList'
+import EducationList from '../components/EducationList'
+import Layout from '../layouts/index'
+
+import '../styles/styles.css'
 
 const IndexPage = () => {
   
 
   return (
-    <>
-      <SEO title="Crocker Bytes | Tech & Design Opinions and Tutorials" description="Where Alex Crocker shares his thoughts on tech and byte-sized tutorials on software development, system administration, and design." />
-        <h1>Welcome to Crocker Bytes!</h1>
-        <div style={{padding: '1rem 0'}}>
-          <div>
-            <span role="img" aria-label="crocodile" className="giant-emoji">🐊</span>
-            <span role="img" aria-label="waving hand" className="giant-emoji">👋</span>
-            <span role="img" aria-label="smile" className="giant-emoji">😊</span>
-          </div>
-          <em>Don't worry, I don't actually BITE!</em>
-        </div>
-        <SocialIcons />
-        <section>
+    <Layout>
+      <SEO title="Curriculum Vitae" description="For business inquiries or employment opportunies, reach out to Alex on Twitter or by email." />
+
+      <section id="about">
           <h2>About Me</h2>
-          <p>Hi, <strong>my name is Alex</strong>, it's nice to meet you! I am a passionate <strong>full-stack web developer</strong> with countless ideas to make the world a better place through my work. When I'm not <strong>helping my clients fulfill their visions</strong> and <strong>mentoring aspiring young developers</strong> on the <a href="https://devcord.com">Devcord Discord server</a>, I can be found learning new techniques and building new things to further my career. I have a <strong>commitment to lifelong learning</strong>, which is especially important in the tech industry.</p>
-          <p><span role="img" aria-label="finger pointing right" style={{marginRight: 15}}>👉</span>If you are a recruiter or want to hire me, <Link to="/cv">click here</Link> for my resumé!</p>
+          <p>Hey there, I am a highly-skilled full stack web developer with a focus on building fully responsive front-end experiences with the JAMstack. However, I have proven work experience in various other tech stacks.</p>
+          <p>I am currently seeking a full-time position in the greater Orlando area, but I am willing to re-locate for the right opportunity.</p>
+          <p>You can get in touch with me via email for job opportunities at <a href="mailto:alexcrocker@me.com">alexcrocker@me.com</a></p>
+      </section>
+
+      <section id="employment">
+            <h2>Employment History</h2>
+            <JobList />
+        </section>
+        
+        <section id="projects">
+            <h2>Personal Projects</h2>
+            <ProjectList />
         </section>
 
-        <section>
-          <h2>The Blog</h2>
+        <section id="education">
+            <h2>Education</h2>
+            <EducationList />
+        </section>
+
+        <section id="blog">
+          <h2>Blog Posts</h2>
           <PostList />
         </section>
-    </>
+    </Layout>
   )
 }
 

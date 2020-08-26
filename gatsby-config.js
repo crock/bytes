@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://crockerbytes.com`,
-    title: ``,
-    description: ``,
+    siteUrl: `https://alexandercrocker.com`,
+    title: `Alexander Crocker`,
+    description: `Software Engineer in Orlando, FL`,
     author: `@crockerbytes`,
   },
   plugins: [
@@ -10,6 +10,13 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-105760658-5`,
+      },
+    },
+    {
+      resolve: `gatsby-source-tumblr`,
+      options: {
+        blogIdentifier: `alexcrocker`,
+        consumerKey: `2Jqw0B1EzMPysOOAtgJ5aIWVDfbkqPwFItsOXZtdXwGExOmrnA`,
       },
     },
     `gatsby-remark-embedder`,
@@ -23,12 +30,6 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
-            },
-          },
-          {
-            resolve: `gatsby-remark-embed-gist`,
-            options: {
-              includeDefaultCss: false,
             },
           },
         ],
@@ -59,8 +60,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Crocker Bytes`,
-        short_name: `CrocBytes`,
+        name: `Alexander Crocker`,
+        short_name: `Alex Crocker`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#EBF2F2`,
@@ -68,7 +69,6 @@ module.exports = {
         icon: `${__dirname}/src/images/croc-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
   ],
 }
