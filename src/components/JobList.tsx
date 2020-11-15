@@ -12,11 +12,15 @@ const JobList = () => {
         html
         frontmatter {
           date
+          company
           title
+          location
           website
           repo
           techStack
+          timePeriod
           termInMonths
+          ongoing
         }
       }
     }
@@ -27,24 +31,29 @@ const JobList = () => {
   const jobs = jobData.allMarkdownRemark.edges.map(edge => edge.node)
 
     return (
-        <ul style={{listStyleType: 'none'}}>
+        <>
             {jobs.map(job => (
-              <li key={job.id}>
-                <h3>{job.frontmatter.title}</h3>
-                <dl>
-                    <dt>Start Date</dt>
-                    <dd>{moment(job.frontmatter.date, 'YYYY-MM-DD').format('MMMM YYYY').toString()} ({`${job.frontmatter.termInMonths} months`})</dd>
-
-                    <dt>Tech Stack</dt>
-                    <dd>{job.frontmatter.techStack}</dd>
-                </dl>
-                <div className="flex flex-row">
-                  { job.frontmatter.website ? <a style={{marginRight: 15}} href={job.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Website</a> : null }
-                  { job.frontmatter.repo ? <a href={job.frontmatter.repo} target="_blank" rel="noopener" className="no-print">View Repository</a> : null }
+              <div key={job.id} className="mb-4 p-6 border-gray-500 border border-solid relative">
+                <h3 className="text-xl font-bold">{job.frontmatter.title}</h3>
+                <div className="text-lg font-light">{job.frontmatter.company} - {job.frontmatter.location}</div>
+                <div className="text-sm font-semibold">{job.frontmatter.timePeriod}</div>
+                <p className="text-base font-normal py-4" dangerouslySetInnerHTML={{__html: job.html}}></p>
+                <div>
+                  <h4 className="text-base font-bold">Skills:</h4>
+                  <ul className="list-inside list-disc">
+                    {job.frontmatter.techStack ? job.frontmatter.techStack.split(',').map(skill => {
+                      return <li>{skill}</li>
+                    }) : null}
+                  </ul>
                 </div>
-              </li>
+                { job.frontmatter.ongoing ? <div className="py-2 px-4 bg-green-600 w-24 h-10 text-center text-white rounded absolute top-0 right-0 mr-3 mt-3">Active</div> : null }
+                <a href={job.frontmatter.website} className="block mt-8 text-green-800">
+                  <div className="block print:hidden">Website</div>
+                  <div className="hidden print:block">{job.frontmatter.website}</div>
+                </a>
+              </div>
             ))}
-          </ul>
+        </>
     )
 }
 
