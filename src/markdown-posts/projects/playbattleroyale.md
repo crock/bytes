@@ -1,10 +1,11 @@
 ---
 type: "project"
 date: "2019-01-01"
-title: "PlayBattleRoyale.com - Twitch Clip Aggregator (Currently semi-working due to Twitch API change)"
-website: "https://playbattleroyale.com"
-repo: "https://github.com/crock/clip-aggregator"
-techStack: "PHP JavaScript Laravel Vue.js HTML CSS SCSS"
-termInMonths: 1
+title: "Play Battle Royale"
+subtitle: "Twitch Clip Aggregator"
+url: "https://github.com/crock/clip-aggregator"
+skills: "PHP,JavaScript,Laravel,Vue.js,HTML,CSS,SCSS"
+dates: "January 2019"
 ongoing: false
 ---
+Currently semi-working due to Twitch API change

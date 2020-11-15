@@ -11,12 +11,11 @@ const ProjectList = () => {
         id
         html
         frontmatter {
-          date
+          dates
           title
-          website
-          repo
-          techStack
-          termInMonths
+          subtitle
+          url
+          skills
           ongoing
         }
       }
@@ -36,24 +35,29 @@ const ProjectList = () => {
   }
 
     return (
-        <ul style={{listStyleType: 'none'}}>
+        <>
             {projects.map(project => (
-              <li key={project.id}>
-                <h3>{project.frontmatter.title}</h3>
-                <dl>
-                    <dt>Start Date</dt>
-                    <dd>{moment(project.frontmatter.date, 'YYYY-MM-DD').format('MMMM YYYY').toString()} {calculateMonthsActive(project.frontmatter)}</dd>
-
-                    <dt>Tech Stack</dt>
-                    <dd>{project.frontmatter.techStack}</dd>
-                </dl>
-                <div className="flex flex-row">
-                  { project.frontmatter.website ? <a style={{marginRight: 15}} href={project.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Project</a> : null }
-                  { project.frontmatter.repo ? <a href={project.frontmatter.repo} target="_blank" rel="noopener" className="no-print">View Repository</a> : null }
-                </div>
-              </li>
+              <div key={project.id} className="mb-4 p-6 border-gray-500 border border-solid relative">
+              <h3 className="text-xl font-bold">{project.frontmatter.title}</h3>
+              <div className="text-lg font-light">{project.frontmatter.subtitle}</div>
+              <div className="text-sm font-semibold">{project.frontmatter.dates}</div>
+              <p className="text-base font-normal py-4" dangerouslySetInnerHTML={{__html: project.html}}></p>
+              <div>
+                <h4 className="text-base font-bold">Skills:</h4>
+                <ul className="list-inside list-disc">
+                  {project.frontmatter.skills ? project.frontmatter.skills.split(',').map(skill => {
+                    return <li>{skill}</li>
+                  }) : null}
+                </ul>
+              </div>
+              { project.frontmatter.ongoing ? <div className="py-2 px-4 bg-green-600 w-24 h-10 text-center text-white rounded absolute top-0 right-0 mr-3 mt-3">Active</div> : null }
+              <a href={project.frontmatter.url} className="block mt-8 text-green-800">
+                <div className="block print:hidden">Website</div>
+                <div className="hidden print:block">{project.frontmatter.url}</div>
+              </a>
+            </div>
             ))}
-          </ul>
+          </>
     )
 }
 

@@ -12,11 +12,9 @@ const EducationList = () => {
         id
         html
         frontmatter {
-          date
+          dates
           title
-          website
-          degree
-          major
+          subtitle
         }
       }
     }
@@ -27,26 +25,20 @@ const EducationList = () => {
   const schools = educationData.allMarkdownRemark.edges.map(edge => edge.node)
 
     return (
-        <ul style={{listStyleType: 'none'}}>
+        <>
             {schools.map(education => (
-              <li key={education.id}>
-                <h3>{education.frontmatter.title}</h3>
-                <dl>
-                    <dt>Graduation Date</dt>
-                    <dd>{moment(education.frontmatter.date, 'YYYY-MM-DD').format('MMMM YYYY').toString()}</dd>
-
-                    <dt>Degree</dt>
-                    <dd>{education.frontmatter.degree}</dd>
-
-                    <dt>Major / Focus</dt>
-                    <dd>{education.frontmatter.major}</dd>
-                </dl>
-                <HStack>
-                  { education.frontmatter.website ? <a href={education.frontmatter.website} target="_blank" rel="noopener" className="no-print">View Site</a> : null }
-                </HStack>
-              </li>
+              <div key={education.id} className="mb-4 p-6 border-gray-500 border border-solid relative">
+              <h3 className="text-xl font-bold">{education.frontmatter.title}</h3>
+              <div className="text-lg font-light">{education.frontmatter.subtitle}</div>
+              <div className="text-sm font-semibold">{education.frontmatter.dates}</div>
+              <p className="text-base font-normal py-4" dangerouslySetInnerHTML={{__html: education.html}}></p>
+              <a href={education.frontmatter.url} className="block mt-8 text-green-800">
+                <div className="block print:hidden">Website</div>
+                <div className="hidden print:block">{education.frontmatter.url}</div>
+              </a>
+            </div>
             ))}
-        </ul>
+        </>
     )
 }
 

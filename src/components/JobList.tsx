@@ -12,14 +12,11 @@ const JobList = () => {
         html
         frontmatter {
           date
-          company
           title
-          location
-          website
-          repo
-          techStack
-          timePeriod
-          termInMonths
+          subtitle
+          url
+          skills
+          dates
           ongoing
         }
       }
@@ -35,21 +32,21 @@ const JobList = () => {
             {jobs.map(job => (
               <div key={job.id} className="mb-4 p-6 border-gray-500 border border-solid relative">
                 <h3 className="text-xl font-bold">{job.frontmatter.title}</h3>
-                <div className="text-lg font-light">{job.frontmatter.company} - {job.frontmatter.location}</div>
-                <div className="text-sm font-semibold">{job.frontmatter.timePeriod}</div>
+                <div className="text-lg font-light">{job.frontmatter.subtitle}</div>
+                <div className="text-sm font-semibold">{job.frontmatter.dates}</div>
                 <p className="text-base font-normal py-4" dangerouslySetInnerHTML={{__html: job.html}}></p>
                 <div>
                   <h4 className="text-base font-bold">Skills:</h4>
                   <ul className="list-inside list-disc">
-                    {job.frontmatter.techStack ? job.frontmatter.techStack.split(',').map(skill => {
+                    {job.frontmatter.skills ? job.frontmatter.skills.split(',').map(skill => {
                       return <li>{skill}</li>
                     }) : null}
                   </ul>
                 </div>
                 { job.frontmatter.ongoing ? <div className="py-2 px-4 bg-green-600 w-24 h-10 text-center text-white rounded absolute top-0 right-0 mr-3 mt-3">Active</div> : null }
-                <a href={job.frontmatter.website} className="block mt-8 text-green-800">
+                <a href={job.frontmatter.url} className="block mt-8 text-green-800">
                   <div className="block print:hidden">Website</div>
-                  <div className="hidden print:block">{job.frontmatter.website}</div>
+                  <div className="hidden print:block">{job.frontmatter.url}</div>
                 </a>
               </div>
             ))}

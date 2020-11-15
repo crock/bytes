@@ -1,9 +1,9 @@
 ---
 type: "project"
-date: "2020-06-01"
-title: "Duel Streams - Watch and chat with two or more Twitch streams simulataneously"
-website: "https://watch.duel.to"
-repo: "https://github.com/duel/watch-duel-streams"
-techStack: "JavaScript TypeScript React styled-components CSS"
+title: "Duel Streams"
+subtitle: "Watch and chat with two or more Twitch streams simulataneously"
+url: "https://github.com/duel/watch-duel-streams"
+skills: "JavaScript,TypeScript,React.js,styled-components,CSS"
+dates: "June 2020"
 ongoing: true
 ---
