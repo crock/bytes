@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import '../styles/extra.css'
 
 const PostList = () => {
     const data = useStaticQuery(graphql`

@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react'
+import '../styles/extra.css'
 
 interface IContactForm {
     subject?: string,

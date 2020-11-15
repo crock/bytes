@@ -7,6 +7,8 @@ import drbIcon from '../images/drb.png'
 import twitchIcon from '../images/twitch.png'
 import ytIcon from '../images/yt.png'
 
+import '../styles/extra.css'
+
 const SocialIcons = () => {
 
     return (

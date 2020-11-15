@@ -15,6 +15,7 @@ const EducationList = () => {
           dates
           title
           subtitle
+          position
         }
       }
     }
@@ -22,7 +23,12 @@ const EducationList = () => {
 }
 `)
 
-  const schools = educationData.allMarkdownRemark.edges.map(edge => edge.node)
+  const schools = educationData.allMarkdownRemark.edges
+    .map(edge => edge.node)
+    .sort(function(a, b) {
+      return a.frontmatter.position - b.frontmatter.position;
+    })
+    .reverse();
 
     return (
         <>

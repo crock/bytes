@@ -18,6 +18,7 @@ const JobList = () => {
           skills
           dates
           ongoing
+          position
         }
       }
     }
@@ -25,7 +26,12 @@ const JobList = () => {
 }
 `)
 
-  const jobs = jobData.allMarkdownRemark.edges.map(edge => edge.node)
+  const jobs = jobData.allMarkdownRemark.edges
+    .map(edge => edge.node)
+    .sort(function(a, b) {
+      return a.frontmatter.position - b.frontmatter.position;
+    })
+    .reverse();
 
     return (
         <>
